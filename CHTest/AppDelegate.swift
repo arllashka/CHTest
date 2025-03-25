@@ -10,10 +10,16 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    var window = CHWindow()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window.frame = UIScreen.main.bounds
+        window.rootViewController = ViewController()
+        window.makeKeyAndVisible()
+        let containerView = ContainerView()
+        containerView.frame = CGRect(origin: .zero, size: window.frame.size)
+        window.chAddSubview(containerView)
         // Override point for customization after application launch.
         return true
     }
